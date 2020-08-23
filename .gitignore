@@ -1,0 +1,4 @@
+ReactApp/node_modules
+ReactApp/dist
+Services/GraphQL-Service/node_modules
+Services/GraphQL-Service/dist

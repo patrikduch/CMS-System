@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "transform-react-jsx",
+    "@babel/plugin-syntax-dynamic-import",
+    "transform-react-constant-elements",
+    [
+      // Fix for styled components error (client and server mismatch)
+      "babel-plugin-styled-components",
+      {
+        "minify": true,
+        "transpileTemplateLiterals": true,
+        "pure": true,
+        "ssr": true
+      }
+    ]
+  ]
+}
