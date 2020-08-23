@@ -2,6 +2,7 @@ import { HelmetData } from "react-helmet";
 import { NormalizedCacheObject } from "apollo-cache-inmemory";
 
 import serialize from 'serialize-javascript';
+import HelmetIntegration from "../seo/Helmet-Integration";
 
 const Html = (content: string, helmetData: HelmetData, apolloState: NormalizedCacheObject) => `
 <html lang="en">
@@ -11,6 +12,9 @@ const Html = (content: string, helmetData: HelmetData, apolloState: NormalizedCa
     name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
+
+  ${HelmetIntegration.getMeta(helmetData)}
+  ${HelmetIntegration.getTitle(helmetData)}
 </head>
 
 <body>
@@ -19,6 +23,8 @@ const Html = (content: string, helmetData: HelmetData, apolloState: NormalizedCa
 <script> 
   window.INITIAL_STATE = ${serialize(apolloState)}
 </script>
+<script src="/vendors~client.bundle.js"></script>
+<script src="/client.js"></script>
 </body>
 </html>
 `

@@ -4,6 +4,11 @@ import Helmet from "react-helmet";
 import routes from "./routes";
 
 class App extends Component {
+
+  componentDidMount() {
+    console.log("Patrik Duch");
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,7 +16,7 @@ class App extends Component {
           <title>Patrik Duch</title>
           <meta
             name="description"
-            content="React app with Server Side Rendering"
+            content="Description of the website"
           />
         </Helmet>
         <header className="App-header">
