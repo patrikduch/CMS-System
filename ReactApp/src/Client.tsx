@@ -1,4 +1,5 @@
 import "babel-polyfill";
+
 // Apollo requirements
 import { ApolloProvider } from 'react-apollo';
 
@@ -11,29 +12,16 @@ import * as Bundles from "./Bundles";
 const bundleSet: any = Bundles;
 import window from "global";
 
-
-/* SEO (Helmet) */
 import { HelmetProvider } from "react-helmet-async";
 
-
 import apolloClient from './lib/client/apollo/create-apollo-store';
-
-/*
-  Type checking
-*/
 import IWindowObject from "./typescript/interfaces/shared/dom/IWindowObject";
-
 
 import App from './App';
 
 
-
 const helmetContext = {};
-
 const splitPoints = (window as IWindowObject).splitPoints || [];
-
-
-
 
 Promise.all(
   splitPoints.map((chunk: string) => bundleSet[chunk].loadComponent())

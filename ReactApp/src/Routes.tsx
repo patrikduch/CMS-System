@@ -3,14 +3,14 @@ import {
 } from "./Bundles";
 
 
+
+
 export default [
   {
-    routes: [
-      {
-        ...Landing,
-        path: "/",
-        exact: true,
-      },
-    ],
+    path: '/',
+    exact: true,
+    name: 'home',
+    ...Landing
   },
+  
 ];

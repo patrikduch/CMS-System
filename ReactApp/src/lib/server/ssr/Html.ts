@@ -21,7 +21,7 @@ const Html = (content: string, helmetData: HelmetData, apolloState: NormalizedCa
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root">${content}</div>
 <script> 
-  window.INITIAL_STATE = ${serialize(apolloState)}
+  window.__APOLLO_STATE__ = ${serialize(apolloState)}
 </script>
 <script src="/vendors~client.bundle.js"></script>
 <script src="/client.js"></script>

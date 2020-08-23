@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import Helmet from "react-helmet";
-
-import StoreType from "../../../typescript/types/shared/redux/StoreType";
+import useProjectDetail from "../../data/qql/project-details/useProjectDetail";
 
 
 /**
  * @function LandingPage => Page component for root page of  web application.
  */
 const LandingPage: React.FC = () => {
+
+
+  const projectDetail = useProjectDetail();
+
   return (
           <>
             <Helmet>
@@ -15,10 +18,13 @@ const LandingPage: React.FC = () => {
               <meta name="title" content="Bakalářská práce | Index" />
             </Helmet>
 
-            <p>Patrik Duch</p>
+            <h1>{projectDetail.projectName}</h1>
+            
           </>
 
   );
 };
 
-export default LandingPage;
+export default {
+  component: LandingPage
+}
