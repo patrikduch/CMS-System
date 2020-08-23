@@ -349,3 +349,8 @@ https://github.com/typescript-eslint/typescript-eslint/issues/109
 # GraphQL
 
 https://github.com/trojanowski/react-apollo-hooks
+
+
+# GraphQL SSR
+
+isomorphic-fetch

@@ -1,13 +1,25 @@
+import 'isomorphic-fetch';
 import express, { Response, Request } from "express";
-import renderProcess from "./lib/server/render-process";
-import getServerStore from "./lib/server/redux/store/get-server-store";
-import { matchRoutes, RouteConfig } from "react-router-config";
-import Routes from "./Routes";
 
-import RenderContextType from "./typescript/types/app/lib/server/Render-Context-Type";
+import path from 'path';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { StaticRouter as Router } from 'react-router-dom';
+import Helmet from 'react-helmet';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import {
+  ApolloProvider,
+  getDataFromTree,
+} from 'react-apollo';
 
-/* Process all necessary external styles. */
-import "bootstrap/dist/css/bootstrap.min.css";
+
+import Html from './lib/server/ssr/Html';
+
+
+import App from './App';
+
 
 /* Server instance */
 const app = express();
@@ -15,46 +27,35 @@ const app = express();
 /* Serve up static files from this directory */
 app.use(express.static("dist"));
 
+
 /*
   All routes are matched to this rule
 */
 app.get("*", async function (req: Request, res: Response) {
-
-
-  // Create separate instance of redux store for server side
-  const store = getServerStore(req);
-
-  // Promises all that represents sets of component with loadData method asociated with them
-  const promises = matchRoutes(Routes as RouteConfig[], req.path).map(
-    ({ route }) => {
-      // Process query params
-      if (route.component != undefined) {
-        route.query = req.query;
-      }
-
-      return route.loadData
-        ? route.loadData(store, {
-            queryString: req.query,
-            params: req.params,
-            path: req.path,
-          })
-        : null;
-    }
-  );
-
-  /* Resolving all promises */
-  await Promise.all(promises).then(() => {
-    /* now context.splitPoints contains the names of the chunks we used during rendering */
-    const context: RenderContextType = {
-      splitPoints: [],
-      notFound: false,
-    };
-
-    // After that we can render content
-    res.send(
-      renderProcess(req, res, store, Routes as RouteConfig[], req.query, context)
-    );
+  const client = new ApolloClient({
+    ssrMode: true,
+    link: new HttpLink({
+      uri: 'http://graphql-testservice-4291.rostiapp.cz/graphql',
+    }),
+    cache: new InMemoryCache(),
   });
+  const app = (
+    <ApolloProvider client={client}>
+      <Router location={req.url} context={{}}>
+        <App />
+      </Router>
+    </ApolloProvider>
+  );
+  // Executes all graphql queries for the current state of application
+  await getDataFromTree(app);
+  // Extracts apollo client cache 
+  const state = client.extract();
+  const content = ReactDOMServer.renderToStaticMarkup(app);
+  const helmet = Helmet.renderStatic();
+
+  res.status(200);
+  res.send(`<!doctype html>${Html(content, helmet, state)}`);
+  res.end();
 });
 
 /*
