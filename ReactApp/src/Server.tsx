@@ -1,7 +1,11 @@
 import 'isomorphic-fetch';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import App from './App';
 import express, { Response, Request } from "express";
+import Html from './lib/server/ssr/Html';
+
+
 
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
@@ -16,10 +20,7 @@ import {
 } from 'react-apollo';
 
 
-import Html from './lib/server/ssr/Html';
 
-
-import App from './App';
 
 
 /* Server instance */

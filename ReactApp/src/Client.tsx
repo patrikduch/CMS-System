@@ -18,8 +18,6 @@ const bundleSet: any = Bundles;
 import { HelmetProvider } from "react-helmet-async";
 
 
-
-
 const helmetContext = {};
 const splitPoints = (window as any).splitPoints || [];
 
