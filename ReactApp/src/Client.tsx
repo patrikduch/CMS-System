@@ -10,18 +10,18 @@ import * as Bundles from "./Bundles";
 
 
 const bundleSet: any = Bundles;
-import window from "global";
+
 
 import { HelmetProvider } from "react-helmet-async";
 
 import apolloClient from './lib/client/apollo/create-apollo-store';
-import IWindowObject from "./typescript/interfaces/shared/dom/IWindowObject";
+
 
 import App from './App';
 
 
 const helmetContext = {};
-const splitPoints = (window as IWindowObject).splitPoints || [];
+const splitPoints = (window as any).splitPoints || [];
 
 Promise.all(
   splitPoints.map((chunk: string) => bundleSet[chunk].loadComponent())

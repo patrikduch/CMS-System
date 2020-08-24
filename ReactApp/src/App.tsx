@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Helmet from "react-helmet";
 import routes from "./routes";
+
 
 class App extends Component {
 

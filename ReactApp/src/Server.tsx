@@ -1,7 +1,6 @@
 import 'isomorphic-fetch';
 import express, { Response, Request } from "express";
 
-import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter as Router } from 'react-router-dom';
