@@ -10,8 +10,8 @@ const LandingPage: React.FC = () => {
   return (
           <>
             <Helmet>
-              <title>Bakalářská práce | Index </title>
-              <meta name="title" content="Bakalářská práce | Index" />
+              <title>CMS system | Index </title>
+              <meta name="title" content="CMS system| Index" />
             </Helmet>
           </>
   );
