@@ -13,9 +13,7 @@ const LandingPage: React.FC = () => {
               <title>Bakalářská práce | Index </title>
               <meta name="title" content="Bakalářská práce | Index" />
             </Helmet>
-
           </>
-
   );
 };
 
