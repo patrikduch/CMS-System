@@ -13,6 +13,8 @@ const Html = (content: string, helmetData: HelmetData, apolloState: NormalizedCa
     content="width=device-width, initial-scale=1, shrink-to-fit=no"
   />
 
+  <link rel="stylesheet" href="./App.css">
+
   ${HelmetIntegration.getMeta(helmetData)}
   ${HelmetIntegration.getTitle(helmetData)}
 </head>

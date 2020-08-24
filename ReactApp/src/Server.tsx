@@ -1,4 +1,6 @@
 import 'isomorphic-fetch';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import express, { Response, Request } from "express";
 
 import React from 'react';

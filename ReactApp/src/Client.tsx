@@ -1,7 +1,10 @@
 import "babel-polyfill";
 
+import App from './App';
+
 // Apollo requirements
 import { ApolloProvider } from 'react-apollo';
+import apolloClient from './lib/client/apollo/create-apollo-store';
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -14,10 +17,7 @@ const bundleSet: any = Bundles;
 
 import { HelmetProvider } from "react-helmet-async";
 
-import apolloClient from './lib/client/apollo/create-apollo-store';
 
-
-import App from './App';
 
 
 const helmetContext = {};

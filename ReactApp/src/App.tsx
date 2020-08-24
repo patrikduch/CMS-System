@@ -13,13 +13,6 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Helmet>
-        <title>Patrik Duch</title>
-        <meta
-          name="description"
-          content="Description of the website"
-        />
-      </Helmet>
       <header className="App-header">
         <h1 className="App-title">{projectDetail.projectName}</h1>
       </header>

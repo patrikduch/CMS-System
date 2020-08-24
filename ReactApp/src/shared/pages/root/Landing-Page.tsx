@@ -1,7 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
 
-
 /**
  * @function LandingPage => Page component for root page of  web application.
  */

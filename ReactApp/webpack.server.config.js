@@ -5,6 +5,7 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const baseConfig = require("./src/config/webpack/webpack.config.base");
 
+
 // Module export via CommonJS style
 module.exports = (env) => {
   const isDev = env.NODE_ENV == "production" ? true : false;
@@ -85,14 +86,13 @@ module.exports = (env) => {
     plugins: [
       new webpack.IgnorePlugin(/html-to-draftjs$/),
 
+
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         //both options are optional
         filename: "App.css",
         chunkFilename: "",
       }),
-
-      //new TerserWebpackPlugin(),
 
       new webpack.DefinePlugin({
         PRODUCTION: JSON.stringify(true),
