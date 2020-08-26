@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql';
 
 
-const OwnerInfoType=  new GraphQLObjectType({
+const OwnerInfoType =  new GraphQLObjectType({
     name: 'OwnerInfo',
     fields: {
         id: { type: GraphQLInt },

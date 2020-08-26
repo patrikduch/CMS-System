@@ -16,26 +16,20 @@ const RootQuery =  new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
         projectDetail: {
-
             type: ProjectDetailSchema,
-
             resolve: async (_) => {
-
                 const projectDetailResult = await Uow.getRepository(ProjectDetail).findFirst();
-
                 return projectDetailResult;
             }
         },
 
         ownerInfo: {
-
             type: OwnerInfoType,
-
             resolve: async(_) => {
                 const ownerInfoResult = await Uow.getRepository(OwnerInfo).findFirst();
                 return ownerInfoResult;
             }
-        }
+        },
     }
 
 })
