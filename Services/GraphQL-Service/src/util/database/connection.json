@@ -1,0 +1,13 @@
+{
+	"isDev": 0,
+
+	"dev": {},
+
+	"prod": {
+		"username": "admin",
+		"password": "PW",
+		"databaseName": "bachelorproject",
+		"host": "193.105.159.179",
+		"dialect": "mysql"
+	}
+}

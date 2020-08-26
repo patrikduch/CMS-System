@@ -10,8 +10,8 @@ const useProjectDetail = () => {
 
   return {
     loading,
-    projectName: data && data.projectDetail.projectName
+    projectName: data && data.projectDetail.name
   }
 }
 
-export default useProjectDetail
+export default useProjectDetail 
