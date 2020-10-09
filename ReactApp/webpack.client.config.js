@@ -8,6 +8,9 @@ const baseConfig = require("./src/config/webpack/webpack.config.base");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const BrotliPlugin = require("brotli-webpack-plugin");
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+
 // Module export via CommonJS style
 module.exports = env => {
   const config = {
@@ -37,11 +40,36 @@ module.exports = env => {
           loader: "url-loader?limit=100000"
         },
 
+        {
+          test: /\.s?css$$/,
+          use: [
+          MiniCssExtractPlugin.loader,
+          {
+              loader: 'css-loader',
+          },
+
+          {
+              loader: 'sass-loader',
+              options: {
+                  sourceMap: true
+              }
+          }
+          ],
+      },
+
 
       ]
     },
 
     plugins: [
+
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        //both options are optional
+        filename: "App.css",
+        chunkFilename: "",
+      }),
+      
       new webpack.NormalModuleReplacementPlugin(
         /Bundles.tsx/,
         "./Async-Bundles.tsx"

@@ -5,7 +5,6 @@ import { TYPES } from "./types";
 /* Services */
 import IEncryptionService from "../typescript/interfaces/services/IEncryption-Service";
 import EncryptionService from "../services/Encryption-Service";
-
 import IProjectDetailFasade from "../typescript/interfaces/fasades/IProject-Detail-Fasade";
 import ProjectDetailFasade from "../fasades/project-detail/Project-Detail-Fasade";
 import IUserFasade from "../typescript/interfaces/fasades/IUser-Fasade";
@@ -18,11 +17,9 @@ import IFileUploaderFasade from "../typescript/interfaces/fasades/IFile-Uploader
 import FileUploaderFasade from "../fasades/file-uploads/File-Uploader-Fasade";
 import IUnitOfWork from "../typescript/interfaces/uow/IUnitOfWork";
 import UnitOfWork from "../uow/UnitOfWork";
-
 import IStatsFasade from "../typescript/interfaces/fasades/IStats-Fasade";
 import StatsFasade from "../fasades/stats/Stats-Fasade";
 import ISocialIconsFasade from "../typescript/interfaces/fasades/ISocial-Icons-Fasade";
-
 import SocialIconsFasade from "../fasades/social-icons/Social-Icons-Fasade";
 import IModuleFeatureFasade from "../typescript/interfaces/fasades/IModule-Feature-Fasade";
 import ModuleFeatureFasade from "../fasades/module-system/Module-Feature-Fasade";
@@ -31,7 +28,6 @@ import OwnerInfoFasade from "../fasades/owner-info/Owner-Info-Fasade";
 import IGallerySystemFasade from "../typescript/interfaces/fasades/IGallery-System-Fasade";
 import GallerySystemFasade from "../fasades/gallery-system/Gallery-System-Fasade";
 import INewsletterFasade from "../typescript/interfaces/fasades/INewsletter-Fasade";
-import NewsletterSubscriber from "../models/newsletter/Newsletter-Subscriber";
 import NewsletterFasade from "../fasades/newsletter/Newsletter-Fasade";
 import IEmailGeneratorService from "../typescript/interfaces/services/IEmail-Generator-Service";
 import EmailGeneratorService from "../services/e-mails/Email-Generator-Service";

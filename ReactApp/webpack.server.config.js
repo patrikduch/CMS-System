@@ -34,7 +34,7 @@ module.exports = (env) => {
           loader: "url-loader?limit=100000"
         },
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           use: [
             MiniCssExtractPlugin.loader,
             {
@@ -42,28 +42,7 @@ module.exports = (env) => {
             },
             "sass-loader",
           ],
-        },
-
-        {
-          test: /\.css$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            {
-              loader: "css-loader",
-            },
-            {
-              loader: "postcss-loader",
-              options: {
-                ident: "postcss",
-                plugins: [
-                  require("autoprefixer")({}),
-                  require("cssnano")({ preset: "default" }),
-                ],
-                minimize: true,
-              },
-            },
-          ],
-        },
+        }
       ],
     },
 
