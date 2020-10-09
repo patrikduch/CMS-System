@@ -17,7 +17,6 @@ const setup = (app: Koa<Context, {}>) => {
     .use(
       compress({
         threshold: 2048,
-        flush: require("zlib").Z_SYNC_FLUSH,
       })
     )
     .use(cors()) // Cross site request forgery
@@ -31,9 +30,6 @@ const setup = (app: Koa<Context, {}>) => {
       schema: schema,
       graphiql: true
     })));
-
-
-
 
 };
 
